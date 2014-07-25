@@ -6,20 +6,29 @@ var morriScript = mS = (function (){
 	
 	load = function(){
 		for(var i = 0, j = arguments.length; i < j; i++){
-    	var file = false;
-			switch(arguments[i].split('.').last()){
-	      case 'js': case 'html':
+			var file = false;
+			switch(arguments[i].split('.')[1]){
+				case 'js':
 					file = document.createElement('script');
 					file.src = arguments[i] + '?version=' + s.version;
-	        break;
+					break;
 				case 'css':
 					file = document.createElement('link');
 					file.rel = 'stylesheet';
 					file.href= arguments[i] + '?version=' + settings.version;
 					break;
-	      default:
-	        break;
-	    }
+				case 'html':
+					var xhr= new XMLHttpRequest();
+					xhr.open('GET', arguments[i], true);
+					xhr.onreadystatechange= function() {
+					    if (this.readyState!==4) return;
+					    if (this.status!==200) return; // or whatever error handling you want
+					    document.body.innerHTML= this.responseText;
+					};
+					xhr.send();
+				default:
+					break;
+			}
 			if(file){
 				document.head.appendChild(file);
 			}
@@ -27,21 +36,29 @@ var morriScript = mS = (function (){
 	}
 
   write = function(content){
-		document.body.innerHTML += content;
+		return document.body.innerHTML += content;
   };
 
-	html = function(html){
-				
-		for(var key in html) {
-			console.log(eval(key));
-			var value = html[key];
-			for(var prop in value) {
-				console.log(prop + " = " + value[prop]);
-			}
-			write(value[prop]);
-		}
-		
+	html = function(content, child_content){
+		var html_content;
+		for(var key in content){
 
+			console.log(content);
+
+
+			html_content = "";
+			if(typeof child_content !== "undefined"){
+				html_content += child_content;
+			}
+			html_content += "<" + key + ">";
+			if(typeof content[key] === "object"){
+				html(content[key], html_content);
+			} else {
+				html_content += content[key];
+				write(html_content);
+			}
+			html_content += "</" + key + ">";
+		}
 		
 	};
 
@@ -53,19 +70,5 @@ var morriScript = mS = (function (){
 })();
 
 window.onload = function(){
-	mS.load('content.js');
+	mS.load('functions.js', 'home.html');
 };
-
-Array.prototype.last = function(){
-	return this[this.length - 1];
-}
-
-Array.prototype.clean = function(value){
-	for (var i = 0; i < this.length; i++) {
-		if (this[i] == value) {         
-			this.splice(i, 1);
-			i--;
-		}
-	}
-	return this;
-}
