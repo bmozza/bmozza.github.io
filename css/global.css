@@ -1,0 +1,88 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+body {
+	background:#F2F2F2;
+	font-family:'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	margin:50px 0 10px 0;
+	font-size:44px;
+	font-weight:100;
+}
+
+h2 {
+	font-size:20px;
+	border:1px solid #333;
+	border-width:1px 0px;
+	line-height:40px;
+	font-weight:100;
+}
+
+ul {
+	list-style:none;
+	padding:0px;
+	position:absolute;
+	top:200px;
+}
+
+.icons li {
+	display:inline;
+	margin:0px 3px;
+}
+
+ul li {
+	margin-bottom:10px;
+}
+
+.card {
+	display:block;
+	margin:50px auto;
+	width:790px;
+	height:450px;
+	perspective:2000px;
+}
+
+.card > div {
+	position:absolute;
+	backface-visibility:hidden;
+	transition-duration:500ms;
+	z-index:1;
+	box-shadow:1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+	width:100%;
+	height:100%;
+}
+
+.card .front {
+	background:#000;
+	color:#FFF;
+}
+
+.card .content {
+	float: left;
+	width: 30%;
+	padding: 0 10%;
+	text-align: center;
+	height: 100%;	
+}
+
+.card .front .content:last-child {
+	background-image:url("../images/ben.jpg");
+}
+
+.card .back {
+	background:#FFF;
+	z-index:0;
+	transform:rotateX(180deg);
+}
+
+.card.flip .front {  
+	transform:rotateX(180deg);
+	z-index:0;
+}
+
+.card.flip .back {
+	transform:rotateX(360deg);
+	z-index:1;
+}
