@@ -40,12 +40,12 @@ body {
 	transform:rotateX(180deg);
 }
 
-.flip .front {  
+.card.flip .front {  
 	transform:rotateX(180deg);
 	z-index:0;
 }
 
-.flip .back {
+.card.flip .back {
 	transform:rotateX(360deg);
 	z-index:1;
 }
