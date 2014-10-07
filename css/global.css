@@ -6,50 +6,10 @@ body {
 	font-family:'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-h1 {
-	padding:30px 0 10px 0;
-	font-size:45px;
-	font-weight:100;
-}
-
-h2 {
-	font-size:20px;
-	border:1px solid #333;
-	border-width:1px 0px;
-	line-height:40px;
-	font-weight:100;
-}
-
-.icons {
-	position:absolute;
-	top:140px;
-	width:80%;
-}
-
-.icons li {
-	display:inline;
-	margin:0px 3px;
-}
-
-ul li {
-	margin-bottom:10px;
-}
-
-.contacts {
-	padding-top:70px;
-	font-size:11px;
-	font-weight:bold;
-}
-
-.contacts a {
-	text-decoration:none;
-	color:inherit;
-}
-
 .card {
-	display:block;
-	position:relative;
-	margin: 10px auto;
+	display: block;
+	position: relative;
+	margin: auto;
 	width: 310px;
 	height: 470px;
 	perspective:2000px;
@@ -97,6 +57,45 @@ ul li {
 	z-index:1;
 }
 
+h1 {
+	padding:30px 0 10px 0;
+	font-size:45px;
+	font-weight:100;
+}
+
+h2 {
+	font-size:20px;
+	border:1px solid #333;
+	border-width:1px 0px;
+	line-height:40px;
+	font-weight:100;
+}
+
+.icons {
+	position:absolute;
+	top:140px;
+	width:80%;
+}
+
+.icons li {
+	display:inline;
+	margin:0px 3px;
+}
+
+.contacts {
+	padding-top:70px;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.contacts li {
+	margin-bottom:10px;
+}
+
+.contacts a {
+	text-decoration:none;
+	color:inherit;
+}
 
 @media only screen and (min-width: 500px){
 
