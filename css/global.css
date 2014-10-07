@@ -9,7 +9,7 @@ body {
 .card {
 	display: block;
 	position: relative;
-	margin: auto;
+	margin: 5px auto;
 	width: 310px;
 	height: 470px;
 	perspective:2000px;
