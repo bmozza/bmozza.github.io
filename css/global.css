@@ -7,24 +7,23 @@ body {
 }
 
 h1 {
-	margin:50px 0 10px 0;
-	font-size:44px;
+	padding:30px 0 10px 0;
+	font-size:35px;
 	font-weight:100;
 }
 
 h2 {
-	font-size:20px;
+	font-size:16px;
 	border:1px solid #333;
 	border-width:1px 0px;
 	line-height:40px;
 	font-weight:100;
 }
 
-ul {
-	list-style:none;
-	padding:0px;
+.icons {
 	position:absolute;
-	top:200px;
+	top:140px;
+	width:80%;
 }
 
 .icons li {
@@ -36,11 +35,23 @@ ul li {
 	margin-bottom:10px;
 }
 
+.contacts {
+	padding-top:70px;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.contacts a {
+	text-decoration:none;
+	color:inherit;
+}
+
 .card {
 	display:block;
-	margin:50px auto;
-	width:790px;
-	height:450px;
+	position:relative;
+	margin: 20px auto;
+	width: 310px;
+	height: 470px;
 	perspective:2000px;
 }
 
@@ -60,15 +71,17 @@ ul li {
 }
 
 .card .content {
-	float: left;
-	width: 30%;
 	padding: 0 10%;
 	text-align: center;
-	height: 100%;	
+	height: 50%;	
+	position:relative;
 }
 
-.card .front .content:last-child {
-	background-image:url("../images/Ben.jpg");
+.card .front {
+	background-image:url("../images/ben.jpg");
+	background-size:100% auto;
+	background-position:bottom right;
+	background-repeat:no-repeat;
 }
 
 .card .back {
@@ -85,4 +98,42 @@ ul li {
 .card.flip .back {
 	transform:rotateX(360deg);
 	z-index:1;
+}
+
+
+@media only screen and (min-width: 500px){
+
+	.card {
+		margin: 50px auto;
+		width: 470px;
+		height: 310px;
+	}
+	
+	.card .content {
+		padding: 0 5%;
+		width: 40%;	
+		height: 100%;
+		float:left;
+	}
+
+	.card .front {
+		background-size:auto 100%;
+	}
+	
+	.icons {
+		top: 150px;
+	}
+	
+	.icons img {
+		width: 37px;
+	}
+		
+	.contacts {
+		padding-top:145px;
+	}
+	
+	h1 {
+		padding-top:45px;
+	}
+	
 }
